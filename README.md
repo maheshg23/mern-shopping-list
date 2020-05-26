@@ -38,3 +38,6 @@ npm run client
 ### License
 
 This project is licensed under the MIT License
+
+### References
+- https://jwt.io/

@@ -2,23 +2,28 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-
-const items = require('./routes/api/items');
+const config = require('config');
 
 var app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 // DB
-const db = require('./config/keys').mongoURI;
+const db = config.get('mongoURI');
 
 //Connect
 mongoose
-    .connect(db)
+    .connect(db, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useUnifiedTopology: true
+    })
     .then(() => console.log("MongoDB Connected"))
     .catch(err => console.log(err));
 
-app.use('/api/items', items);
+app.use('/api/items', require('./routes/api/items'));
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 //Server static assets if in Production 
 if(process.env.NODE_ENV == 'production'){
