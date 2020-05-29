@@ -2,6 +2,8 @@
 
 > Shopping list app built with the MERN stack along with Redux for state management, Reactstrap and react-transition-group.
 
+![alt text](/App-Homepage.png)
+
 ## Quick Start
 
 Add your MONGO_URI to the default.json file. Make sure you set an env var for that and the jwtSecret on deployment
@@ -41,3 +43,4 @@ This project is licensed under the MIT License
 
 ### References
 - https://jwt.io/
+- https://github.com/bradtraversy/mern_shopping_list

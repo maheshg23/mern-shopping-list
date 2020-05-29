@@ -62,35 +62,35 @@ export const register = ({ name, email, password }) => (dispatch) => {
     });
 };
 
-// // Login User
-// export const login = ({ email, password }) => (dispatch) => {
-//   // Headers
-//   const config = {
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   };
+// Login User
+export const login = ({ email, password }) => (dispatch) => {
+  // Headers
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
-//   // Request body
-//   const body = JSON.stringify({ email, password });
+  // Request body
+  const body = JSON.stringify({ email, password });
 
-//   axios
-//     .post("/api/auth/login", body, config)
-//     .then((res) =>
-//       dispatch({
-//         type: LOGIN_SUCCESS,
-//         payload: res.data,
-//       })
-//     )
-//     .catch((err) => {
-//       dispatch(
-//         returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
-//       );
-//       dispatch({
-//         type: LOGIN_FAIL,
-//       });
-//     });
-// };
+  axios
+    .post("/api/auth/login", body, config)
+    .then((res) =>
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data,
+      })
+    )
+    .catch((err) => {
+      dispatch(
+        returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
+      );
+      dispatch({
+        type: LOGIN_FAIL,
+      });
+    });
+};
 
 // Logout User
 export const logout = () => {
